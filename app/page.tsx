@@ -26,15 +26,15 @@ export default function HomePage() {
         </div>
 
         <h1>
-          The data layer
+          Roastery software that doesn&apos;t
           <br />
-          for your <em className="trace">roastery</em>
+          punish you for <em className="trace">growing</em>
           <span className="dot">.</span>
         </h1>
 
         <p className="hero-sub">
-          Every roast, every lot, every invoice — streamed into one system that
-          tells you what to do, not just what happened.
+          Green inventory, roast profiles, and cost tracking — with AI that
+          catches problems before you do. Flat $99 a month. No volume tiers.
         </p>
 
         <div className="hero-actions">
@@ -84,21 +84,27 @@ export default function HomePage() {
 
       <section className="reveal">
         <div className="section-label">
-          <span>What it does</span>
+          <span>The category, rebuilt</span>
           <span className="idx">01 / 04</span>
         </div>
         <div className="section-body">
           <p>
-            Every craft roaster runs the same pile of tools: a spreadsheet for
-            green coffee, Artisan files in a folder, PDF invoices from Royal and
-            Genuine Origin, a calculator for COGS. By Friday nobody knows
-            what&apos;s actually in the building.
+            Every craft roaster we&apos;ve met runs a version of the same
+            setup: a green inventory spreadsheet that&apos;s always a week out
+            of date, Artisan files in a folder nobody opens, PDF invoices from
+            Royal and Genuine Origin piling up in email, a COGS calculator
+            somebody built in 2019. The tools that do exist for this — you
+            know the ones — were built a decade ago and price you by the pound
+            as you grow.
           </p>
           <p>
-            Roastlytics puts all of it in one place — then layers intelligence
-            on top. Inventory predicts when you&apos;ll run out. Curves flag
-            anomalies before you taste them. Invoices extract themselves. COGS
-            updates in real time.
+            Roastlytics is the thing that replaces all of it. Green inventory,
+            roast profiles, cupping, COGS — every feature you already expect,
+            plus an AI layer underneath that watches what&apos;s actually
+            happening in your shop. Invoices extract themselves. Curves flag
+            anomalies before you taste them. Reorder alerts land before
+            you&apos;re down to the last bag. And the price is flat, whether
+            you roast 500 pounds a month or 10,000.
           </p>
         </div>
       </section>
@@ -153,15 +159,23 @@ export default function HomePage() {
 
       <section className="reveal">
         <div className="section-label">
-          <span>A few things it does well</span>
+          <span>Where the AI earns its keep</span>
           <span className="idx">03 / 04</span>
+        </div>
+
+        <div className="section-body" style={{ marginBottom: 32 }}>
+          <p>
+            Most roastery software reports what happened. Ours catches what&apos;s
+            about to go wrong — and tells you what to do about it.
+          </p>
         </div>
 
         <div className="features">
           <div className="feature">
             <h3>Artisan import</h3>
             <p className="feature-desc">
-              Drop a roast file. Inventory updates in seconds.
+              Drop a roast file. Inventory updates in seconds. Every batch
+              matched to the lot it came from.
             </p>
             <div className="feature-viz">
               <ArtisanImport />
@@ -169,9 +183,10 @@ export default function HomePage() {
           </div>
 
           <div className="feature">
-            <h3>Curve analysis</h3>
+            <h3>AI curve analysis</h3>
             <p className="feature-desc">
-              Full BT/ET curves with phases, markers, DTR.
+              Every roast compared to your reference profile. Outliers flagged
+              before the cupping table does.
             </p>
             <div className="feature-viz">
               <RoastCurve />
@@ -183,7 +198,8 @@ export default function HomePage() {
           <div className="feature">
             <h3>AI invoice scan</h3>
             <p className="feature-desc">
-              Photograph a supplier invoice. Line items extracted in 20 seconds.
+              Photograph a supplier invoice. Line items parsed and matched to
+              lots in twenty seconds.
             </p>
             <div className="feature-viz">
               <InvoiceOCR lines={invoiceLines} />
@@ -193,7 +209,8 @@ export default function HomePage() {
           <div className="feature">
             <h3>COGS in real time</h3>
             <p className="feature-desc">
-              Landed cost + loss rate + labor, per pound roasted.
+              Landed cost plus loss rate plus labor, per pound roasted. No
+              spreadsheet reconciliation on the first of the month.
             </p>
             <div className="feature-viz">
               <div
@@ -242,15 +259,17 @@ export default function HomePage() {
         </div>
         <div className="section-body">
           <p>
-            Commercial craft roasters doing 500 to 10,000 lbs per month. Shops
-            that have outgrown a notebook but can&apos;t justify a six-figure
-            ERP. Operators who want to know their numbers without doing the
-            math by hand.
+            Commercial craft roasters doing 500 to 10,000 pounds a month.
+            Shops that have outgrown a notebook but don&apos;t want to be
+            sized-up into a new tier every time they add a wholesale account.
+            Operators who want their numbers visible, their anomalies caught,
+            and their Sundays back.
           </p>
           <p>
-            If you roast on a Diedrich, Loring, Probat, or San Franciscan — and
-            you export Artisan .alog files — you&apos;ll be up and running the
-            same day.
+            If you roast on a Diedrich, Loring, Probat, or San Franciscan —
+            and you export Artisan .alog files — you&apos;ll be up and running
+            the same day. Same-day onboarding, month-to-month, and your data
+            leaves with you if it doesn&apos;t work out.
           </p>
         </div>
       </section>
@@ -258,9 +277,9 @@ export default function HomePage() {
       <div className="cta reveal">
         <div className="cta-lead">Twenty minutes. Your shop, live.</div>
         <p className="cta-sub">
-          Bring a month of .alog files and a recent supplier invoice. We&apos;ll
-          have your green, your roasts, your COGS — all working by the end of
-          the call.
+          Bring a month of .alog files and a recent supplier invoice.
+          We&apos;ll have your green, your roasts, your COGS — all working by
+          the end of the call.
         </p>
         <div className="cta-actions">
           <Link className="btn btn-primary" href="/contact">

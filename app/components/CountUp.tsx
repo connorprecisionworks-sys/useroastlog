@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Format = "int" | "dec" | "money";
 
@@ -18,12 +18,8 @@ export default function CountUp({
   className?: string;
 }) {
   const [value, setValue] = useState(0);
-  const started = useRef(false);
 
   useEffect(() => {
-    if (started.current) return;
-    started.current = true;
-
     const reduce =
       typeof window !== "undefined" &&
       window.matchMedia &&
