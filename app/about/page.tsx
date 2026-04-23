@@ -4,16 +4,20 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Why we built Roast Log, what we believe about software for craft roasters, and who's behind it.",
+    "Why Roastlytics exists, what we believe about software for craft roasters, and who's behind it.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <section className="hero" style={{ marginBottom: 56 }}>
-        <div className="hero-tag reveal">About</div>
-        <h1 className="reveal" style={{ maxWidth: 820 }}>
-          Software for the back of the shop<span className="em">.</span>
+        <div className="hero-tag">
+          <span className="pulse" />
+          About
+        </div>
+        <h1 style={{ maxWidth: 880 }}>
+          Intelligence for<br />
+          the back of the shop<span className="dot">.</span>
         </h1>
       </section>
 
@@ -21,8 +25,9 @@ export default function AboutPage() {
         <p className="about-lede">
           Most software for coffee roasters is either a cash register that
           thinks it runs a roastery, or a six-figure ERP that assumes you roast
-          in tons. We built Roast Log for the middle — the part of the industry
-          where the coffee actually comes from.
+          in tons. We built Roastlytics for the middle — the part of the
+          industry where the coffee actually comes from — and we layered AI on
+          top so the software tells you what to do, not just what happened.
         </p>
         <div className="prose">
           <p>
@@ -34,9 +39,11 @@ export default function AboutPage() {
             them update each other.
           </p>
           <p>
-            Roast Log replaces that stack with one system that knows where your
-            coffee is, what it cost, how it roasted, and what you should charge
-            for it.
+            Roastlytics replaces that stack with one system that knows where
+            your coffee is, what it cost, how it roasted, and what you should
+            charge for it. Then goes further: predicts when you&apos;ll run
+            out, flags roasts that look wrong before you cup them, forecasts
+            COGS before invoices land.
           </p>
         </div>
       </section>
@@ -51,24 +58,31 @@ export default function AboutPage() {
           <p>
             You&apos;re busy roasting. If a tool makes you update inventory by
             hand after every batch, it&apos;s not helping — it&apos;s a second
-            job. Roast Log updates itself from the roast file you already
+            job. Roastlytics updates itself from the roast file you already
             exported.
           </p>
 
           <h3>Data belongs to roasters.</h3>
           <p>
             Your curves, your costs, your customers — all exportable, all the
-            time. If you ever want to leave, you leave with everything. We
-            think that&apos;s the only defensible way to run SaaS.
+            time. If you ever want to leave, you leave with everything.
+            That&apos;s the only defensible way to run SaaS.
           </p>
 
-          <h3>Simple is a feature.</h3>
+          <h3>Intelligence, not just storage.</h3>
           <p>
-            We left out multi-location, integrations with a dozen accounting
-            systems, and a &ldquo;marketing suite&rdquo; — on purpose. Those
-            are real needs for some shops; they&apos;re not the needs that show
-            up at 2pm on a Tuesday when you&apos;re trying to figure out if you
-            have enough Ethiopia for the week.
+            Other roasting software stores your data. We turn it into
+            decisions. A dashboard that says &ldquo;you have 4,581 lbs of
+            green&rdquo; is a starting point. A system that says &ldquo;your
+            Kenya is 5 days from zero and three suppliers have offerings
+            matching your profile&rdquo; is a different category.
+          </p>
+
+          <h3>Flat pricing, forever.</h3>
+          <p>
+            We don&apos;t charge per pound, per seat, or per feature. One
+            price, every feature, any volume. Your success should make us
+            better, not more expensive.
           </p>
 
           <h3>We don&apos;t train on your data.</h3>
@@ -87,10 +101,10 @@ export default function AboutPage() {
         </div>
         <div className="prose">
           <p>
-            Roast Log is built by a small team that grew up around coffee —
+            Roastlytics is built by a small team that grew up around coffee —
             roasters, baristas, and engineers who got tired of watching good
             shops run their back-of-house on sticky notes. We&apos;re based in
-            the US, beta cohort is open, and you&apos;ll get a human on the
+            the US, the beta cohort is open, and you&apos;ll get a human on the
             phone every time you ask.
           </p>
           <p>

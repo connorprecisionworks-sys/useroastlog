@@ -1,13 +1,46 @@
-# Roast Log — useroastlog.com
+# Roastlytics — roastlytics.com
 
-Marketing site for Roast Log, built on **Next.js 14 (App Router)** with TypeScript.
+Marketing site for Roastlytics, built on **Next.js 14 (App Router)** with TypeScript.
 
 ## Stack
 
 - Next.js 14 · App Router · React 18 · TypeScript
-- `next/font` for Fraunces + Inconsolata (self-hosted, no external Google Fonts request at runtime)
-- Plain CSS (no Tailwind) — all design tokens live as CSS variables in `app/globals.css`
-- No database, no CMS — pure marketing site
+- Instrument Serif + JetBrains Mono via Google Fonts `<link>`
+- Plain CSS with design tokens — no Tailwind
+- No database, no CMS
+
+## Design system
+
+The whole brand lives in `app/globals.css`:
+
+```css
+--paper:      #FAFAF7  /* page background (warm off-white) */
+--ink:        #0A0A0A  /* primary text */
+--ink-soft:   #2A2A2A
+--ink-muted:  #4A4742
+--warm-gray:  #8A8780  /* secondary / metadata */
+--rule:       #E5E3DC  /* borders, dividers */
+--surface:    #F2F0E9  /* subtle card background */
+--red:        #D63B2F  /* accent — used ONLY for alerts and brand dots */
+```
+
+Two fonts: `--f-serif` (Instrument Serif for headlines) and `--f-mono` (JetBrains Mono for body, labels, data).
+
+## Animations
+
+Every animation has a job — none are decoration.
+
+- **Pulse indicator** — ambient "live" signal next to brand and live-data areas
+- **Trace underline** — red line sweeps under the italic word in the hero on load
+- **Brand dot** — red period lands after the trace completes
+- **CountUp** — KPI numbers count from 0 to final value (cubic ease-out)
+- **AnimatedBar** — inventory bars fill on scroll into view, staggered 120ms apart
+- **LiveSync** — "synced Xs ago" ticker that increments every 4 seconds
+- **CogsTicker** — COGS KPI drifts by fractions of a cent to prove data is live
+- **Scroll reveal** — sections fade/rise in as they enter the viewport
+- **Hover reveal** — hovering an inventory row reveals supplier/cost detail
+
+All motion respects `prefers-reduced-motion`.
 
 ## Getting started
 
@@ -16,54 +49,39 @@ npm install
 npm run dev
 ```
 
-Visit http://localhost:3000.
+Open http://localhost:3000.
 
 ## Pages
 
-| Route          | File                         |
-| -------------- | ---------------------------- |
-| `/`            | `app/page.tsx`               |
-| `/features`    | `app/features/page.tsx`      |
-| `/pricing`     | `app/pricing/page.tsx`       |
-| `/about`       | `app/about/page.tsx`         |
-| `/contact`     | `app/contact/page.tsx`       |
+| Route       | File                     |
+| ----------- | ------------------------ |
+| `/`         | `app/page.tsx`           |
+| `/features` | `app/features/page.tsx`  |
+| `/pricing`  | `app/pricing/page.tsx`   |
+| `/about`    | `app/about/page.tsx`     |
+| `/contact`  | `app/contact/page.tsx`   |
 
-## Shared components
+## Components
 
-- `app/components/Nav.tsx` — top nav with active-link detection
-- `app/components/SiteFooter.tsx` — site footer
-- `app/components/Reveal.tsx` — scroll-triggered fade-up, re-runs on route change
-- `app/components/Viz.tsx` — reusable feature visualizations (inventory bars, curve SVG, Artisan import, invoice OCR, roast comparison)
+- `Nav.tsx` — top nav with active-link detection via `usePathname`
+- `SiteFooter.tsx` — site footer
+- `Reveal.tsx` — scroll-triggered fade-up, re-runs on route change
+- `CountUp.tsx` — animated number counter (respects reduced motion)
+- `AnimatedBar.tsx` — inventory bar that fills on viewport entry
+- `LiveSync.tsx` — ambient "synced Xs ago" ticker
+- `CogsTicker.tsx` — drifting COGS value
+- `Viz.tsx` — reusable feature visualizations (curve, import, OCR, comparison)
 
-## Contact form wiring
+## Contact form
 
-`app/contact/ContactForm.tsx` currently logs submissions and fakes success. Pick one:
-
-1. **Next.js API route** — create `app/api/contact/route.ts`, `POST` the form payload, forward to email via Resend / Postmark / SendGrid, or write to Airtable / Notion / Postgres. Replace the commented `fetch("/api/contact", ...)` line in `ContactForm.tsx`.
-2. **Formspree / Basin** — swap the `handleSubmit` to POST directly to their endpoint. Zero backend.
-3. **Cal.com / Calendly** — for the demo mode specifically, you could skip the form entirely and redirect to a booking link.
+`app/contact/ContactForm.tsx` currently logs submissions and fakes success.
+Wire it to a backend by uncommenting the `fetch()` line and creating
+`app/api/contact/route.ts` — or use Formspree / Basin for zero-backend.
 
 ## Deploying
 
-The usual winners for a Next.js marketing site:
-
-- **Vercel** — `git push`, done. Free tier handles this easily.
-- **Cloudflare Pages** — also great, Next.js-compatible.
-- **Netlify** — works, install the Next.js runtime.
-
-Point `useroastlog.com` DNS at whichever you pick.
-
-## Design tokens
-
-Everything lives in `app/globals.css` under `:root`:
-
-```css
---cream:   #f5f1e8  /* page background */
---roast:   #2a1810  /* primary ink */
---ember:   #c4541a  /* accent / CTAs */
---tan:     #ede4d1  /* borders, muted surfaces */
---mocha:   #8b6f47  /* secondary ink */
---surface: #efeadf  /* subtle card background */
+```bash
+git push
 ```
 
-Change these in one place and the whole site moves with you.
+Vercel auto-deploys. Point `roastlytics.com` DNS at the Vercel project.

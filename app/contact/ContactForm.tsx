@@ -9,9 +9,9 @@ const copy = {
     eyebrow: "Start your trial",
     titleLine1: "Twenty minutes",
     titleLine2: "Then your shop is live.",
-    sub: "Tell us a bit about your roastery. Bring a month of .alog files and a recent supplier invoice to the call — we'll have it all working before you hang up.",
+    sub: "Tell us about your roastery. Bring a month of .alog files and a recent supplier invoice to the call — we'll have it all working before you hang up.",
     submit: "Start my trial",
-    notesLabel: "What are you hoping Roast Log will fix?",
+    notesLabel: "What are you hoping Roastlytics will fix?",
     successMsg:
       "We'll be in touch within a business day to set up your account and walk you through onboarding.",
   },
@@ -19,7 +19,7 @@ const copy = {
     eyebrow: "Book a demo",
     titleLine1: "Twenty minutes",
     titleLine2: "Bring your own data.",
-    sub: "We'll walk through Roast Log with your actual roast files and a recent invoice. No demo sandbox, no slideshows.",
+    sub: "We'll walk through Roastlytics with your actual roast files and a recent invoice. No demo sandbox, no slideshows.",
     submit: "Request demo",
     notesLabel: "What do you want to see in the demo?",
     successMsg: "We'll email you a calendar link within a business day.",
@@ -48,16 +48,17 @@ export default function ContactForm({ initialMode }: { initialMode: Mode }) {
       notes: formData.get("notes"),
     };
 
-    // Wire this up to your backend (API route, Formspree, Resend, etc.)
-    // For now we simulate success so the UI flow is testable end-to-end.
     try {
+      // Wire this to your backend:
       // await fetch("/api/contact", { method: "POST", body: JSON.stringify(payload) });
       console.log("[contact] submission:", payload);
       await new Promise((r) => setTimeout(r, 400));
       setSubmitted(true);
     } catch (err) {
       console.error(err);
-      alert("Something went wrong. Please email connor.precisionworks@gmail.com directly.");
+      alert(
+        "Something went wrong. Please email connor.precisionworks@gmail.com directly."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -66,14 +67,17 @@ export default function ContactForm({ initialMode }: { initialMode: Mode }) {
   return (
     <>
       <section className="hero" style={{ marginBottom: 48 }}>
-        <div className="hero-tag reveal">{c.eyebrow}</div>
-        <h1 className="reveal" style={{ maxWidth: 780 }}>
+        <div className="hero-tag">
+          <span className="pulse" />
+          {c.eyebrow}
+        </div>
+        <h1 style={{ maxWidth: 820 }}>
           {c.titleLine1}
-          <span className="em">.</span>
+          <span className="dot">.</span>
           <br />
-          <span className="soft">{c.titleLine2}</span>
+          <em>{c.titleLine2}</em>
         </h1>
-        <p className="hero-sub reveal">{c.sub}</p>
+        <p className="hero-sub">{c.sub}</p>
       </section>
 
       <section className="reveal">
@@ -106,7 +110,13 @@ export default function ContactForm({ initialMode }: { initialMode: Mode }) {
             </div>
             <div className="field">
               <label htmlFor="company">Roastery</label>
-              <input id="company" name="company" type="text" required autoComplete="organization" />
+              <input
+                id="company"
+                name="company"
+                type="text"
+                required
+                autoComplete="organization"
+              />
             </div>
             <div className="field">
               <label htmlFor="volume">Monthly roast volume</label>
@@ -132,8 +142,13 @@ export default function ContactForm({ initialMode }: { initialMode: Mode }) {
               <label htmlFor="notes">{c.notesLabel}</label>
               <textarea id="notes" name="notes" rows={4} />
             </div>
-            <button className="btn btn-primary form-submit" type="submit" disabled={submitting}>
-              <span>{submitting ? "Sending…" : c.submit}</span> <span className="arrow">→</span>
+            <button
+              className="btn btn-primary form-submit"
+              type="submit"
+              disabled={submitting}
+            >
+              <span>{submitting ? "Sending…" : c.submit}</span>{" "}
+              <span className="arrow">→</span>
             </button>
           </form>
         ) : (
@@ -167,7 +182,7 @@ export default function ContactForm({ initialMode }: { initialMode: Mode }) {
         .mode-toggle {
           display: inline-flex;
           gap: 0;
-          border: 1px solid var(--tan);
+          border: 1px solid var(--rule);
           border-radius: 2px;
           overflow: hidden;
           margin-bottom: 36px;
@@ -178,28 +193,32 @@ export default function ContactForm({ initialMode }: { initialMode: Mode }) {
           border: 0;
           padding: 10px 18px;
           font-size: 11px;
-          font-weight: 600;
+          font-weight: 500;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: var(--mocha);
+          color: var(--warm-gray);
           cursor: pointer;
           transition: background 180ms ease, color 180ms ease;
         }
         .mode-toggle button + button {
-          border-left: 1px solid var(--tan);
+          border-left: 1px solid var(--rule);
         }
         .mode-toggle button.on {
-          background: var(--roast);
-          color: var(--cream);
+          background: var(--ink);
+          color: var(--paper);
         }
         .mode-toggle button:disabled {
           opacity: 0.6;
           cursor: not-allowed;
         }
+        .form-submit {
+          align-self: flex-start;
+          margin-top: 10px;
+        }
         .contact-rail {
           margin-top: 48px;
           padding-top: 32px;
-          border-top: 1px solid var(--tan);
+          border-top: 1px solid var(--rule);
           display: grid;
           grid-template-columns: 1fr;
           gap: 20px;
@@ -207,33 +226,34 @@ export default function ContactForm({ initialMode }: { initialMode: Mode }) {
         }
         .rail-cell .rail-label {
           font-size: 10px;
-          font-weight: 600;
+          font-weight: 500;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: var(--mocha);
+          color: var(--warm-gray);
           margin-bottom: 6px;
         }
         .rail-cell :global(a) {
-          color: var(--roast);
+          color: var(--ink);
           text-decoration: underline;
           text-underline-offset: 3px;
-          text-decoration-color: var(--mocha);
+          text-decoration-color: var(--warm-gray);
         }
         .success {
           padding: 24px;
           background: var(--surface);
-          border-left: 3px solid var(--ember);
+          border-left: 3px solid var(--red);
           border-radius: 2px;
         }
         .success :global(strong) {
           font-family: var(--f-serif);
-          font-size: 18px;
-          color: var(--roast);
+          font-size: 20px;
+          color: var(--ink);
+          font-weight: 400;
         }
         .success :global(p) {
           margin-top: 8px;
           font-size: 14px;
-          color: var(--ink-soft);
+          color: var(--ink-muted);
         }
         @media (min-width: 640px) {
           .contact-rail {

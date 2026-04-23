@@ -8,7 +8,6 @@ export default function Reveal() {
 
   useEffect(() => {
     const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    // Reset state on route change
     els.forEach((el) => el.classList.remove("in"));
 
     const reduce =
@@ -35,13 +34,11 @@ export default function Reveal() {
 
     els.forEach((el) => io.observe(el));
 
-    // Reveal the first element quickly
     const first = document.querySelector<HTMLElement>(".reveal");
     const firstTimer = window.setTimeout(() => {
       first?.classList.add("in");
     }, 60);
 
-    // Safety net
     const safetyTimer = window.setTimeout(() => {
       els.forEach((el) => el.classList.add("in"));
     }, 2500);

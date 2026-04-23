@@ -5,25 +5,25 @@ import Reveal from "./components/Reveal";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://useroastlog.com"),
+  metadataBase: new URL("https://roastlytics.com"),
   title: {
-    default: "Roast Log — Operations software for coffee roasters",
-    template: "%s — Roast Log",
+    default: "Roastlytics — Intelligence for craft coffee roasters",
+    template: "%s — Roastlytics",
   },
   description:
-    "The back-of-house for commercial craft coffee roasters. Green inventory, roast curves, COGS, and AI invoice scanning — in one place.",
+    "The data layer for your roastery. AI-driven inventory, roast curves, COGS, and supplier invoices — one system that tells you what to do, not just what happened.",
   openGraph: {
-    title: "Roast Log — Operations software for coffee roasters",
+    title: "Roastlytics — Intelligence for craft coffee roasters",
     description:
-      "The back-of-house for commercial craft coffee roasters. Green inventory, roast curves, COGS, and AI invoice scanning — in one place.",
-    url: "https://useroastlog.com",
-    siteName: "Roast Log",
+      "The data layer for your roastery. AI-driven inventory, roast curves, COGS, and supplier invoices — one system that tells you what to do, not just what happened.",
+    url: "https://roastlytics.com",
+    siteName: "Roastlytics",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f5f1e8",
+  themeColor: "#FAFAF7",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -44,7 +44,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inconsolata:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>

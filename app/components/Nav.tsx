@@ -16,11 +16,12 @@ export default function Nav() {
   return (
     <nav className="nav">
       <Link className="brand" href="/">
-        Roast Log<span className="em">.</span>
+        Roastlytics<span className="dot">.</span>
       </Link>
       <div className="nav-links">
         {links.map((l) => {
-          const active = pathname === l.href || pathname?.startsWith(l.href + "/");
+          const active =
+            pathname === l.href || pathname?.startsWith(l.href + "/");
           return (
             <Link
               key={l.href}
@@ -33,7 +34,7 @@ export default function Nav() {
         })}
       </div>
       <Link className="nav-cta" href="/contact">
-        Start Free Trial <span className="arrow">→</span>
+        Start Trial <span className="arrow">→</span>
       </Link>
     </nav>
   );

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple pricing for Roast Log. $49/mo lifetime for beta roasters, $99/mo at public launch. All features included.",
+    "Flat $99/month. Roast 500 lbs or 10,000 lbs — same price. No volume pricing, no per-seat fees, no surprises.",
 };
 
 const faqs: { q: string; a: string }[] = [
@@ -13,12 +13,16 @@ const faqs: { q: string; a: string }[] = [
     a: "Yes — 14 days, no card, no quota games. If you can import a month of Artisan files and a couple of supplier invoices, you'll know inside of an hour whether it fits.",
   },
   {
+    q: "Why flat pricing instead of per-volume?",
+    a: "Because you shouldn't get punished for growing. Most roasting software charges more the more you roast — so your software bill goes up right when you're working harder. Roastlytics is $99/mo whether you roast 500 or 10,000 lbs. Same features, same support.",
+  },
+  {
     q: "What happens to the $49 lifetime rate after public launch?",
-    a: "It stays $49/mo for your account, forever. New signups will be at the $99/mo rate. We wrote it this way because early roasters are taking a bet on us — we want to honor that clearly.",
+    a: "It stays $49/mo for your account, forever. New signups will move to $99/mo. Early roasters are taking a bet on us — we honor that clearly.",
   },
   {
     q: "Do I need to use Artisan?",
-    a: "No. Artisan import is the fastest on-ramp if you already use it, but you can log roasts manually, import from CSV, or skip that module entirely and use Roast Log purely for inventory, COGS, and wholesale.",
+    a: "No. Artisan import is the fastest on-ramp if you already use it, but you can log roasts manually, import from CSV, or skip that module entirely and use Roastlytics purely for inventory, COGS, and wholesale.",
   },
   {
     q: "What about multiple locations?",
@@ -26,15 +30,11 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What if I cancel?",
-    a: "You export everything — green inventory, every roast curve, every invoice — as CSV and .alog before you leave. We built this to be unsticky; it's easier for everyone that way.",
+    a: "You export everything — green inventory, every roast curve, every invoice — as CSV and .alog before you leave. Your data is yours. Always.",
   },
   {
-    q: "How do you handle data and backups?",
-    a: "Encrypted at rest, daily automated backups, and your data is yours. We don't sell it, mine it, or use it to train anything.",
-  },
-  {
-    q: "Can I talk to someone before signing up?",
-    a: "Yes — book a 20-minute demo through the Contact page. Bring a month of .alog files and a recent invoice; we'll show you your shop inside Roast Log before you commit to anything.",
+    q: "How do you handle data and AI training?",
+    a: "Encrypted at rest, daily backups. The AI that analyzes your invoices and curves operates on your data for your benefit — we don't train models on it, sell it, or share it with anyone.",
   },
 ];
 
@@ -42,16 +42,19 @@ export default function PricingPage() {
   return (
     <>
       <section className="hero" style={{ marginBottom: 56 }}>
-        <div className="hero-tag reveal">Pricing</div>
-        <h1 className="reveal" style={{ maxWidth: 780 }}>
-          One plan. Every feature<span className="em">.</span>
+        <div className="hero-tag">
+          <span className="pulse" />
+          Pricing
+        </div>
+        <h1 style={{ maxWidth: 820 }}>
+          Flat <em>$99</em>/month<span className="dot">.</span>
           <br />
-          <span className="soft">No surprise line items.</span>
+          Any volume.
         </h1>
-        <p className="hero-sub reveal">
-          A flat monthly fee per shop. Unlimited roasts, unlimited lots,
-          unlimited imports. We don&apos;t charge per seat or per gigabyte —
-          this is software for people who already count enough things.
+        <p className="hero-sub">
+          Roast 500 lbs or 10,000 lbs — same price. No per-pound fees, no
+          per-seat charges, no feature tiers. We don&apos;t punish you for
+          growing.
         </p>
       </section>
 
@@ -63,13 +66,13 @@ export default function PricingPage() {
               $99<span className="unit">/mo</span>
             </div>
             <p className="price-detail">
-              Single shop. All features, all the time. Cancel anytime. 14-day
-              free trial.
+              Single shop. Every feature. Unlimited roasts, lots, invoices.
+              14-day free trial. Cancel anytime.
             </p>
             <ul className="price-list">
               <li>Unlimited roasts &amp; green lots</li>
               <li>Bulk Artisan import (500 files at a time)</li>
-              <li>AI invoice scanning</li>
+              <li>AI invoice scanning &amp; curve analysis</li>
               <li>COGS, wholesale, cupping, reports</li>
               <li>Email support</li>
             </ul>
@@ -86,7 +89,7 @@ export default function PricingPage() {
               $49<span className="unit">/mo</span>
             </div>
             <p className="price-detail">
-              Half price, forever — for roasters who help us shape the product
+              Half price, forever — for roasters who help shape the product
               before public launch.
             </p>
             <ul className="price-list">
@@ -128,7 +131,7 @@ export default function PricingPage() {
         </p>
         <div className="cta-actions">
           <Link className="btn btn-primary" href="/contact">
-            Start Free Trial <span className="arrow">→</span>
+            Start free trial <span className="arrow">→</span>
           </Link>
           <Link className="btn btn-ghost" href="/contact?mode=demo">
             Book a demo
